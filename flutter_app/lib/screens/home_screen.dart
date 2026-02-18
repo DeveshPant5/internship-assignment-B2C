@@ -663,7 +663,7 @@ class _HomeTabState extends State<_HomeTab> with TickerProviderStateMixin {
                   gridDelegate:
                       const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: 0.95,
+                    childAspectRatio: 0.78,
                     crossAxisSpacing: 14,
                     mainAxisSpacing: 14,
                   ),
