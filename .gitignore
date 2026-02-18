@@ -1,0 +1,29 @@
+# Environment variables (NEVER commit these)
+.env
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Local SQLite databases
+*.db
+
+# Uploads
+uploads/*
+!uploads/.gitkeep
+
+# Logs
+*.log
+analyze.log
+analyze_output.txt
+
+# OS
+.DS_Store
+Thumbs.db
