@@ -1,10 +1,14 @@
 import 'dart:convert';
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/foundation.dart' show kIsWeb, defaultTargetPlatform, TargetPlatform;
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
-  static String get _baseHost => kIsWeb ? 'localhost' : '10.0.2.2';
+  static String get _baseHost {
+    if (kIsWeb) return '127.0.0.1'; // Use IP to avoid localhost resolution issues
+    if (defaultTargetPlatform == TargetPlatform.android) return '10.0.2.2';
+    return '127.0.0.1'; // iOS, Windows, macOS, Linux
+  }
 
   static String get userServiceUrl => 'http://$_baseHost:8001';
   static String get productServiceUrl => 'http://$_baseHost:8002';
@@ -37,8 +41,10 @@ class ApiService {
 
   static Future<Map<String, dynamic>> register(
       String name, String email, String password, String otp) async {
+    final url = Uri.parse('$userServiceUrl/register');
+    print('Making request to: $url');
     final response = await http.post(
-      Uri.parse('$userServiceUrl/register'),
+      url,
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({
         'name': name,
@@ -56,8 +62,10 @@ class ApiService {
   }
 
   static Future<Map<String, dynamic>> login(String email, String password) async {
+    final url = Uri.parse('$userServiceUrl/login');
+    print('Making request to: $url');
     final response = await http.post(
-      Uri.parse('$userServiceUrl/login'),
+      url,
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({'email': email, 'password': password}),
     );

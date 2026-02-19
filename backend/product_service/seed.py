@@ -1,5 +1,6 @@
 import os
 import asyncio
+import certifi
 from pathlib import Path
 from dotenv import load_dotenv
 from motor.motor_asyncio import AsyncIOMotorClient
