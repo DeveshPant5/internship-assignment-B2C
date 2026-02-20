@@ -152,15 +152,22 @@ class _OrdersScreenState extends State<OrdersScreen>
             children: [
               Row(
                 children: [
-                  Container(
-                    width: 42,
-                    height: 42,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.2),
-                      borderRadius: BorderRadius.circular(14),
+                  GestureDetector(
+                    onTap: () {
+                      if (Navigator.canPop(context)) {
+                        Navigator.pop(context);
+                      }
+                    },
+                    child: Container(
+                      width: 42,
+                      height: 42,
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: 0.2),
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: const Icon(Icons.arrow_back_ios_new_rounded,
+                          size: 20, color: Colors.white),
                     ),
-                    child: const Icon(Icons.receipt_long_rounded,
-                        size: 22, color: Colors.white),
                   ),
                   const SizedBox(width: 14),
                   const Expanded(

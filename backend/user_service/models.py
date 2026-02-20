@@ -5,7 +5,6 @@ class UserRegister(BaseModel):
     name: str
     email: str
     password: str
-    otp: str
 
 class UserLogin(BaseModel):
     email: str

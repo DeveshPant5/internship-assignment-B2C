@@ -3,7 +3,7 @@ from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from database import db, get_next_id
 from models import UserRegister, UserLogin, UserProfile, Token
-from auth import hash_password, verify_password, create_access_token, HARDCODED_OTP
+from auth import hash_password, verify_password, create_access_token
 
 app = FastAPI(title="User Service", version="1.0.0")
 
@@ -25,12 +25,6 @@ def health():
 
 @app.post("/register", response_model=Token)
 async def register(user_data: UserRegister):
-    if user_data.otp != HARDCODED_OTP:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Invalid OTP. Use 1234.",
-        )
-
     existing = await db.users.find_one({"email": user_data.email})
     if existing:
         raise HTTPException(

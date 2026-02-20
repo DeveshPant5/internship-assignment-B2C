@@ -38,7 +38,7 @@ class ApiService {
   }
 
   static Future<Map<String, dynamic>> register(
-      String name, String email, String password, String otp) async {
+      String name, String email, String password) async {
     final url = Uri.parse('$userServiceUrl/register');
     print('Making request to: $url');
     final response = await http.post(
@@ -48,7 +48,6 @@ class ApiService {
         'name': name,
         'email': email,
         'password': password,
-        'otp': otp,
       }),
     );
     if (response.statusCode == 200) {
@@ -129,7 +128,7 @@ class ApiService {
         'product_price': productPrice,
         'quantity': quantity,
       }),
-    );
+    ).timeout(const Duration(seconds: 10));
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
     }
@@ -147,8 +146,9 @@ class ApiService {
 
   static Future<List<dynamic>> getCart() async {
     final userId = await getUserId();
-    final response =
-        await http.get(Uri.parse('$cartOrderServiceUrl/cart?user_id=$userId'));
+    final response = await http
+        .get(Uri.parse('$cartOrderServiceUrl/cart?user_id=$userId'))
+        .timeout(const Duration(seconds: 10));
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
     }
@@ -171,8 +171,9 @@ class ApiService {
 
   static Future<List<dynamic>> getOrders() async {
     final userId = await getUserId();
-    final response =
-        await http.get(Uri.parse('$cartOrderServiceUrl/orders?user_id=$userId'));
+    final response = await http
+        .get(Uri.parse('$cartOrderServiceUrl/orders?user_id=$userId'))
+        .timeout(const Duration(seconds: 10));
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
     }

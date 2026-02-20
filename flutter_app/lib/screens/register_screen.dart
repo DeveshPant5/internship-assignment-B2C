@@ -31,7 +31,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
     try {
       await ApiService.register(
-          _nameCtrl.text, _emailCtrl.text, _passCtrl.text, '1234');
+          _nameCtrl.text, _emailCtrl.text, _passCtrl.text);
       if (mounted) {
         Navigator.pushReplacement(
           context,
