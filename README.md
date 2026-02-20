@@ -69,6 +69,39 @@ docker-compose up --build -d
 ```
 This will start MongoDB on port `27017` and the 4 backend services on ports `8001` through `8004`. The `-d` flag runs them in the background.
 
+ 
+ Option 2: Run Manually (Terminal by Terminal)
+
+If the script doesn't work, open *5 separate terminal windows* and run these commands:
+
+#### Terminal 1: User Service
+bash
+cd backend/user_service
+pip install -r requirements.txt
+uvicorn main:app --port 8001 --reload
+
+
+#### Terminal 2: Product Service
+bash
+cd backend/product_service
+pip install -r requirements.txt
+python seed.py
+uvicorn main:app --port 8002 --reload
+
+
+#### Terminal 3: Cart Order Service
+bash
+cd backend/cart_order_service
+pip install -r requirements.txt
+uvicorn main:app --port 8003 --reload
+
+
+#### Terminal 4: Delivery Service
+bash
+cd backend/delivery_service
+pip install -r requirements.txt
+uvicorn main:app --port 8004 --reload
+
  2. Start the Frontend App (Flutter)
 Open a new terminal, navigate to the `flutter_app` directory, and run the app:
 ```bash
