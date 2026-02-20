@@ -5,9 +5,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
   static String get _baseHost {
-    if (kIsWeb) return '127.0.0.1'; // Use IP to avoid localhost resolution issues
+    if (kIsWeb) return '127.0.0.1';
     if (defaultTargetPlatform == TargetPlatform.android) return '10.0.2.2';
-    return '127.0.0.1'; // iOS, Windows, macOS, Linux
+    return '127.0.0.1';
   }
 
   static String get userServiceUrl => 'http://$_baseHost:8001';
@@ -36,8 +36,6 @@ class ApiService {
     final prefs = await SharedPreferences.getInstance();
     await prefs.clear();
   }
-
-  // ==================== USER SERVICE ====================
 
   static Future<Map<String, dynamic>> register(
       String name, String email, String password, String otp) async {
@@ -89,8 +87,6 @@ class ApiService {
     throw Exception('Failed to load profile');
   }
 
-  // ==================== PRODUCT SERVICE ====================
-
   static Future<List<dynamic>> getProducts({String? category}) async {
     String url = '$productServiceUrl/products';
     if (category != null) url += '?category=$category';
@@ -118,8 +114,6 @@ class ApiService {
     }
     throw Exception('Failed to load categories');
   }
-
-  // ==================== CART & ORDER SERVICE ====================
 
   static Future<Map<String, dynamic>> addToCart(
       int productId, String productName, double productPrice,
@@ -184,8 +178,6 @@ class ApiService {
     }
     throw Exception('Failed to load orders');
   }
-
-  // ==================== DELIVERY SERVICE ====================
 
   static Future<Map<String, dynamic>> getOrderStatus(int orderId) async {
     final response =

@@ -83,7 +83,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
             children: [
               const SizedBox(height: 16),
 
-              // Flash icon
               Container(
                 width: 52, height: 52,
                 decoration: BoxDecoration(
@@ -120,7 +119,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
               const SizedBox(height: 32),
 
-              // Full Name
               _buildLabel('Full Name'),
               const SizedBox(height: 8),
               _buildField(
@@ -131,7 +129,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
               const SizedBox(height: 18),
 
-              // Email
               _buildLabel('Email Address'),
               const SizedBox(height: 8),
               _buildField(
@@ -143,7 +140,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
               const SizedBox(height: 18),
 
-              // Password
               _buildLabel('Create Password'),
               const SizedBox(height: 8),
               TextField(
@@ -193,7 +189,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
               const SizedBox(height: 28),
 
-              // Register button
               SizedBox(
                 width: double.infinity,
                 height: 54,
@@ -246,7 +241,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
               const SizedBox(height: 24),
 
-              // Login link
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -323,4 +317,3 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 }
-

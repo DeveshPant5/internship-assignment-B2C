@@ -15,16 +15,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 @app.get("/")
 def root():
     return {"service": "User Service", "status": "running"}
 
-
 @app.get("/health")
 def health():
     return {"status": "healthy", "service": "user_service"}
-
 
 @app.post("/register", response_model=Token)
 async def register(user_data: UserRegister):
@@ -59,7 +56,6 @@ async def register(user_data: UserRegister):
         name=user_data.name,
     )
 
-
 @app.post("/login", response_model=Token)
 async def login(credentials: UserLogin):
     user = await db.users.find_one({"email": credentials.email})
@@ -76,7 +72,6 @@ async def login(credentials: UserLogin):
         user_id=user["id"],
         name=user["name"],
     )
-
 
 @app.get("/profile", response_model=UserProfile)
 async def get_profile(user_id: int):

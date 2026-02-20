@@ -71,7 +71,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             child: CustomScrollView(
               physics: const BouncingScrollPhysics(),
               slivers: [
-                // Image area
                 SliverToBoxAdapter(
                   child: Stack(
                     children: [
@@ -108,14 +107,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   ),
                 ),
 
-                // Product info
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // Category badge
                         if (p['category'] != null)
                           Container(
                             margin: const EdgeInsets.only(bottom: 10),
@@ -132,7 +129,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     color: darkPink)),
                           ),
 
-                        // Name
                         Text(p['name'] ?? '',
                             style: const TextStyle(
                                 fontSize: 26,
@@ -141,7 +137,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 letterSpacing: -0.5)),
                         const SizedBox(height: 16),
 
-                        // Price row
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
@@ -170,7 +165,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               ),
                             ),
                             const SizedBox(width: 14),
-                            // Availability badge
                             Container(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 12, vertical: 8),
@@ -216,7 +210,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
                         const SizedBox(height: 28),
 
-                        // Description section
                         Container(
                           width: double.infinity,
                           padding: const EdgeInsets.all(18),
@@ -261,7 +254,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
                         const SizedBox(height: 24),
 
-                        // Quantity selector
                         Container(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 18, vertical: 14),
@@ -326,7 +318,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             ),
           ),
 
-          // Bottom Add to Cart bar
           Container(
             padding: const EdgeInsets.fromLTRB(24, 14, 24, 24),
             decoration: BoxDecoration(
@@ -491,4 +482,3 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     );
   }
 }
-

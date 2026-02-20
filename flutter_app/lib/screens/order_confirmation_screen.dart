@@ -19,7 +19,6 @@ class OrderConfirmationScreen extends StatelessWidget {
             children: [
               const Spacer(flex: 2),
 
-              // Success icon with glow
               Container(
                 width: 100, height: 100,
                 decoration: BoxDecoration(
@@ -62,7 +61,6 @@ class OrderConfirmationScreen extends StatelessWidget {
 
               const SizedBox(height: 36),
 
-              // Order details card
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(20),
@@ -99,7 +97,6 @@ class OrderConfirmationScreen extends StatelessWidget {
 
               const Spacer(flex: 3),
 
-              // Track Order button
               SizedBox(
                 width: double.infinity,
                 height: 56,
@@ -157,7 +154,6 @@ class OrderConfirmationScreen extends StatelessWidget {
               ),
               const SizedBox(height: 14),
 
-              // Continue shopping
               GestureDetector(
                 onTap: () =>
                     Navigator.popUntil(context, (route) => route.isFirst),
@@ -218,4 +214,3 @@ class OrderConfirmationScreen extends StatelessWidget {
     );
   }
 }
-

@@ -18,16 +18,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 @app.get("/")
 def root():
     return {"service": "Cart & Order Service", "status": "running"}
 
-
 @app.get("/health")
 def health():
     return {"status": "healthy", "service": "cart_order_service"}
-
 
 @app.post("/cart/add", response_model=CartItemResponse)
 async def add_to_cart(request: CartAddRequest):
@@ -69,7 +66,6 @@ async def add_to_cart(request: CartAddRequest):
     await db.cart_items.insert_one(cart_doc)
     return CartItemResponse(**{k: v for k, v in cart_doc.items() if k != "_id"})
 
-
 @app.post("/cart/remove")
 async def remove_from_cart(request: CartRemoveRequest):
     result = await db.cart_items.delete_one(
@@ -82,14 +78,12 @@ async def remove_from_cart(request: CartRemoveRequest):
         )
     return {"message": "Item removed from cart"}
 
-
 @app.get("/cart", response_model=list[CartItemResponse])
 async def get_cart(user_id: int = Query(...)):
     items = await db.cart_items.find(
         {"user_id": user_id}, {"_id": 0}
     ).to_list(length=100)
     return items
-
 
 @app.post("/order/create", response_model=OrderResponse)
 async def create_order(request: OrderCreateRequest):
@@ -136,7 +130,6 @@ async def create_order(request: OrderCreateRequest):
         created_at=order_doc["created_at"],
         items=[OrderItemResponse(**item) for item in order_items],
     )
-
 
 @app.get("/orders", response_model=list[OrderResponse])
 async def get_orders(user_id: int = Query(...)):

@@ -80,7 +80,6 @@ class _ProductsScreenState extends State<ProductsScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Title
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
               child: Row(
@@ -108,7 +107,6 @@ class _ProductsScreenState extends State<ProductsScreen> {
               ),
             ),
 
-            // Search
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
               child: Container(
@@ -152,7 +150,6 @@ class _ProductsScreenState extends State<ProductsScreen> {
               ),
             ),
 
-            // Category chips
             SizedBox(
               height: 52,
               child: _loading
@@ -181,7 +178,6 @@ class _ProductsScreenState extends State<ProductsScreen> {
 
             const SizedBox(height: 14),
 
-            // Grid
             Expanded(
               child: _loading
                   ? const Center(

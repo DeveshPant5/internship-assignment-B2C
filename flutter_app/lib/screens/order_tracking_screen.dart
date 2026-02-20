@@ -131,7 +131,6 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen>
                 )
               : Column(
                   children: [
-                    // ── Map / Hero area ──
                     Stack(
                       children: [
                         Container(
@@ -151,7 +150,6 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen>
                           ),
                           child: Stack(
                             children: [
-                              // Grid lines
                               ...List.generate(
                                   8,
                                   (i) => Positioned(
@@ -174,7 +172,6 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen>
                                             color: Colors.grey.shade300
                                                 .withValues(alpha: 0.4)),
                                       )),
-                              // Route line
                               Center(
                                 child: Container(
                                   width: 3,
@@ -192,7 +189,6 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen>
                                   ),
                                 ),
                               ),
-                              // Delivery icon with pulse
                               Center(
                                 child: ScaleTransition(
                                   scale: _pulse,
@@ -225,7 +221,6 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen>
                                   ),
                                 ),
                               ),
-                              // LIVE badge
                               Positioned(
                                 top: 155,
                                 left: MediaQuery.of(context).size.width /
@@ -259,7 +254,6 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen>
                           ),
                         ),
 
-                        // Back button
                         Positioned(
                           top: MediaQuery.of(context).padding.top + 12,
                           left: 16,
@@ -286,7 +280,6 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen>
                           ),
                         ),
 
-                        // Order ID pill
                         Positioned(
                           top: MediaQuery.of(context).padding.top + 12,
                           right: 16,
@@ -328,7 +321,6 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen>
                           ),
                         ),
 
-                        // ETA banner
                         Positioned(
                           bottom: 16,
                           left: 20,
@@ -431,14 +423,12 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen>
                       ],
                     ),
 
-                    // ── Status stepper ──
                     Expanded(
                       child: ListView(
                         physics: const BouncingScrollPhysics(),
                         padding:
                             const EdgeInsets.fromLTRB(24, 24, 24, 20),
                         children: [
-                          // Title
                           const Text('Order Status',
                               style: TextStyle(
                                   fontSize: 20,
@@ -589,7 +579,6 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen>
 
                           const SizedBox(height: 24),
 
-                          // Address card
                           Container(
                             padding: const EdgeInsets.all(18),
                             decoration: BoxDecoration(
@@ -657,7 +646,6 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen>
 
                           const SizedBox(height: 16),
 
-                          // Refresh button
                           SizedBox(
                             width: double.infinity,
                             height: 52,

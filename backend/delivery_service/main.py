@@ -14,16 +14,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 @app.get("/")
 def root():
     return {"service": "Delivery & Order Status Service", "status": "running"}
 
-
 @app.get("/health")
 def health():
     return {"status": "healthy", "service": "delivery_service"}
-
 
 @app.get("/order/{order_id}/status", response_model=DeliveryStatusResponse)
 async def get_order_status(order_id: int):
@@ -45,7 +42,6 @@ async def get_order_status(order_id: int):
         status=delivery["status"],
         updated_at=delivery["updated_at"],
     )
-
 
 @app.post("/order/{order_id}/update-status", response_model=DeliveryStatusResponse)
 async def update_order_status(order_id: int, request: StatusUpdateRequest = None):

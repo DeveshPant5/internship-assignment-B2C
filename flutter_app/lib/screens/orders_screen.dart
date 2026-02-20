@@ -90,7 +90,6 @@ class _OrdersScreenState extends State<OrdersScreen>
       backgroundColor: const Color(0xFFF7F8FC),
       body: Column(
         children: [
-          // ── Premium Gradient Header ──
           SlideTransition(
             position: _headerSlide,
             child: FadeTransition(
@@ -99,14 +98,12 @@ class _OrdersScreenState extends State<OrdersScreen>
             ),
           ),
 
-          // ── Filter Chips ──
           if (_orders.isNotEmpty)
             FadeTransition(
               opacity: _headerFade,
               child: _buildFilterRow(),
             ),
 
-          // ── Content ──
           Expanded(
             child: _loading
                 ? _buildLoadingState()
@@ -197,7 +194,6 @@ class _OrdersScreenState extends State<OrdersScreen>
               ),
               if (_orders.isNotEmpty) ...[
                 const SizedBox(height: 20),
-                // Stats row
                 Row(
                   children: [
                     _buildHeaderStat(
@@ -511,7 +507,6 @@ class _OrdersScreenState extends State<OrdersScreen>
           ),
           child: Column(
             children: [
-              // ── Colored top accent bar ──
               Container(
                 height: 4,
                 decoration: BoxDecoration(
@@ -530,7 +525,6 @@ class _OrdersScreenState extends State<OrdersScreen>
                 padding: const EdgeInsets.fromLTRB(18, 16, 18, 0),
                 child: Row(
                   children: [
-                    // Status icon
                     Container(
                       width: 52,
                       height: 52,
@@ -569,7 +563,6 @@ class _OrdersScreenState extends State<OrdersScreen>
                         ],
                       ),
                     ),
-                    // Status badge
                     Container(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 12, vertical: 6),
@@ -604,7 +597,6 @@ class _OrdersScreenState extends State<OrdersScreen>
                 ),
               ),
 
-              // Item name chips
               if (items.isNotEmpty)
                 Padding(
                   padding: const EdgeInsets.fromLTRB(18, 12, 18, 0),
@@ -654,7 +646,6 @@ class _OrdersScreenState extends State<OrdersScreen>
                   ),
                 ),
 
-              // Divider
               Padding(
                 padding: const EdgeInsets.symmetric(
                     horizontal: 18, vertical: 14),
@@ -672,7 +663,6 @@ class _OrdersScreenState extends State<OrdersScreen>
                 ),
               ),
 
-              // Bottom: Total + Track button
               Padding(
                 padding: const EdgeInsets.fromLTRB(18, 0, 18, 18),
                 child: Row(

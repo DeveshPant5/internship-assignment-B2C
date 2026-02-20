@@ -5,7 +5,6 @@ from pathlib import Path
 from dotenv import load_dotenv
 from motor.motor_asyncio import AsyncIOMotorClient
 
-# Load .env from project root (two levels up from this file)
 load_dotenv(Path(__file__).resolve().parent.parent.parent / ".env")
 
 MONGO_URL = os.getenv("MONGO_URL")
@@ -14,7 +13,6 @@ if not MONGO_URL:
 DB_NAME = "thriftapp_products"
 
 SEED_PRODUCTS = [
-    # Fruits & Vegetables
     {"name": "Fresh Bananas", "description": "A bunch of ripe yellow bananas", "price": 40.0, "category": "Fruits & Vegetables", "image_url": "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&q=80", "is_available": True},
     {"name": "Red Apples", "description": "Crisp and juicy red apples (1 kg)", "price": 120.0, "category": "Fruits & Vegetables", "image_url": "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400&q=80", "is_available": True},
     {"name": "Tomatoes", "description": "Farm fresh tomatoes (500g)", "price": 30.0, "category": "Fruits & Vegetables", "image_url": "https://images.unsplash.com/photo-1546470427-e26264be0b0d?w=400&q=80", "is_available": True},
@@ -31,7 +29,6 @@ SEED_PRODUCTS = [
     {"name": "Basmati Rice", "description": "Premium basmati rice (1 kg)", "price": 120.0, "category": "Fruits & Vegetables", "image_url": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&q=80", "is_available": True},
     {"name": "Dal", "description": "Toor dal / lentils (1 kg)", "price": 110.0, "category": "Fruits & Vegetables", "image_url": "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=400&q=80", "is_available": True},
 
-    # Dairy & Bakery
     {"name": "Amul Toned Milk", "description": "Pasteurized toned milk (500ml)", "price": 27.0, "category": "Dairy & Bakery", "image_url": "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&q=80", "is_available": True},
     {"name": "Amul Butter", "description": "Creamy butter (100g)", "price": 52.0, "category": "Dairy & Bakery", "image_url": "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=400&q=80", "is_available": True},
     {"name": "Curd Cup", "description": "Fresh curd (400g)", "price": 35.0, "category": "Dairy & Bakery", "image_url": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&q=80", "is_available": True},
@@ -48,7 +45,6 @@ SEED_PRODUCTS = [
     {"name": "Muffin", "description": "Chocolate chip muffin", "price": 35.0, "category": "Dairy & Bakery", "image_url": "https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=400&q=80", "is_available": True},
     {"name": "Pizza Base", "description": "Ready pizza base (2 pcs)", "price": 65.0, "category": "Dairy & Bakery", "image_url": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&q=80", "is_available": True},
 
-    # Snacks & Beverages
     {"name": "Lays Classic Salted", "description": "Crispy potato chips (52g)", "price": 20.0, "category": "Snacks & Beverages", "image_url": "https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=400&q=80", "is_available": True},
     {"name": "Kurkure Masala Munch", "description": "Crunchy corn puffs (75g)", "price": 20.0, "category": "Snacks & Beverages", "image_url": "https://images.unsplash.com/photo-1621447504864-d8686e12698c?w=400&q=80", "is_available": True},
     {"name": "Oreo Biscuits", "description": "Chocolate cream biscuits (120g)", "price": 30.0, "category": "Snacks & Beverages", "image_url": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&q=80", "is_available": True},
@@ -68,13 +64,11 @@ SEED_PRODUCTS = [
     {"name": "Maggi Noodles", "description": "Instant noodles (pack of 4)", "price": 48.0, "category": "Snacks & Beverages", "image_url": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80", "is_available": True},
     {"name": "Sugar", "description": "Refined sugar (1 kg)", "price": 42.0, "category": "Snacks & Beverages", "image_url": "https://images.unsplash.com/photo-1581441363689-1f3c3c413b41?w=400&q=80", "is_available": True},
 
-    # Meat & Fish
     {"name": "Chicken Breast", "description": "Boneless chicken breast (500g)", "price": 180.0, "category": "Meat & Fish", "image_url": "https://images.unsplash.com/photo-1604503468506-a8da13d11bea?w=400&q=80", "is_available": True},
     {"name": "Mutton Curry Cut", "description": "Fresh mutton pieces (500g)", "price": 450.0, "category": "Meat & Fish", "image_url": "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&q=80", "is_available": True},
     {"name": "Fish Fillet", "description": "Boneless fish fillet (500g)", "price": 220.0, "category": "Meat & Fish", "image_url": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&q=80", "is_available": True},
     {"name": "Prawns", "description": "Fresh prawns (250g)", "price": 300.0, "category": "Meat & Fish", "image_url": "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=400&q=80", "is_available": True},
 ]
-
 
 async def seed():
     client = AsyncIOMotorClient(MONGO_URL)
@@ -98,7 +92,6 @@ async def seed():
 
     print(f"Seeded {len(SEED_PRODUCTS)} products successfully!")
     client.close()
-
 
 if __name__ == "__main__":
     asyncio.run(seed())

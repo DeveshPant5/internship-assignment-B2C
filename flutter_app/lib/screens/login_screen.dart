@@ -58,7 +58,6 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               const SizedBox(height: 48),
 
-              // Logo with gradient
               Container(
                 width: 88,
                 height: 88,
@@ -111,7 +110,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
               const SizedBox(height: 32),
 
-              // Banner
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(20),
@@ -166,7 +164,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
               const SizedBox(height: 36),
 
-              // Email field
               _buildLabel('Email or Phone Number'),
               const SizedBox(height: 8),
               _buildField(
@@ -178,7 +175,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
               const SizedBox(height: 18),
 
-              // Password field
               _buildLabel('Password'),
               const SizedBox(height: 8),
               TextField(
@@ -202,7 +198,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
               const SizedBox(height: 18),
 
-              // OTP field
               _buildLabel('Enter OTP'),
               const SizedBox(height: 8),
               _buildField(
@@ -254,7 +249,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
               const SizedBox(height: 28),
 
-              // Login button
               SizedBox(
                 width: double.infinity,
                 height: 54,
@@ -308,7 +302,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
               const SizedBox(height: 24),
 
-              // Sign up link
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -392,4 +385,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-

@@ -6,7 +6,6 @@ import 'orders_screen.dart';
 import 'profile_screen.dart';
 import 'product_detail_screen.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -118,7 +117,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-// ─── Home Tab ─────────────────────────────────────────────
 class _HomeTab extends StatefulWidget {
   final VoidCallback? onSearchTap;
   const _HomeTab({this.onSearchTap});
@@ -270,7 +268,6 @@ class _HomeTabState extends State<_HomeTab> with TickerProviderStateMixin {
             physics: const BouncingScrollPhysics(
                 parent: AlwaysScrollableScrollPhysics()),
             slivers: [
-              // ── Header ──
               SliverToBoxAdapter(
                 child: Container(
                   padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
@@ -363,7 +360,6 @@ class _HomeTabState extends State<_HomeTab> with TickerProviderStateMixin {
                 ),
               ),
 
-              // ── Search Bar ──
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 18, 20, 0),
@@ -435,7 +431,6 @@ class _HomeTabState extends State<_HomeTab> with TickerProviderStateMixin {
                 ),
               ),
 
-              // ── Promo Banner ──
               SliverToBoxAdapter(
                 child: Container(
                   margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
@@ -461,7 +456,6 @@ class _HomeTabState extends State<_HomeTab> with TickerProviderStateMixin {
                   ),
                   child: Stack(
                     children: [
-                      // Decorative circles
                       Positioned(
                         right: -30,
                         top: -30,
@@ -556,7 +550,6 @@ class _HomeTabState extends State<_HomeTab> with TickerProviderStateMixin {
                 ),
               ),
 
-              // ── Category Section ──
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 24, 20, 4),
@@ -612,7 +605,6 @@ class _HomeTabState extends State<_HomeTab> with TickerProviderStateMixin {
                 ),
               ),
 
-              // ── Popular Products Header ──
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 24, 20, 14),
@@ -656,7 +648,6 @@ class _HomeTabState extends State<_HomeTab> with TickerProviderStateMixin {
                 ),
               ),
 
-              // ── Product Grid ──
               SliverPadding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 sliver: SliverGrid(
@@ -747,7 +738,6 @@ class _HomeTabState extends State<_HomeTab> with TickerProviderStateMixin {
   }
 }
 
-// ─── Product Card ─────────────────────────────────────────
 class _ProductCard extends StatelessWidget {
   final Map<String, dynamic> product;
   final int index;
@@ -807,7 +797,6 @@ class _ProductCard extends StatelessWidget {
                       ),
                       child: _buildProductImage(product['image_url'], 22),
                     ),
-                    // Wishlist button
                     Positioned(
                       top: 10,
                       right: 10,
@@ -829,7 +818,6 @@ class _ProductCard extends StatelessWidget {
                             size: 16, color: Colors.grey),
                       ),
                     ),
-                    // Add button
                     Positioned(
                       bottom: 10,
                       right: 10,
@@ -954,7 +942,6 @@ class _ProductCard extends StatelessWidget {
       );
     }
 
-    // Fallback: emoji or icon
     return Center(
       child: Text(
         imageUrl ?? '📦',

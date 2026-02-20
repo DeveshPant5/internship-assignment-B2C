@@ -14,16 +14,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 @app.get("/")
 def root():
     return {"service": "Product Catalog Service", "status": "running"}
 
-
 @app.get("/health")
 def health():
     return {"status": "healthy", "service": "product_service"}
-
 
 @app.get("/products", response_model=list[ProductResponse])
 async def get_products(category: Optional[str] = Query(None)):
@@ -32,7 +29,6 @@ async def get_products(category: Optional[str] = Query(None)):
         query["category"] = category
     products = await db.products.find(query, {"_id": 0}).to_list(length=200)
     return products
-
 
 @app.get("/products/{product_id}", response_model=ProductResponse)
 async def get_product(product_id: int):
@@ -43,7 +39,6 @@ async def get_product(product_id: int):
             detail="Product not found",
         )
     return product
-
 
 @app.get("/categories", response_model=list[CategoryResponse])
 async def get_categories():

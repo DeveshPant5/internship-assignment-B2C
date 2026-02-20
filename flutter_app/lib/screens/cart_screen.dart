@@ -201,7 +201,6 @@ class CartScreenState extends State<CartScreen>
       backgroundColor: const Color(0xFFF7F8FC),
       body: Column(
         children: [
-          // ── Header ──
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -265,7 +264,6 @@ class CartScreenState extends State<CartScreen>
             ),
           ),
 
-          // ── Content ──
           Expanded(
             child: _loading
                 ? const Center(
@@ -460,7 +458,6 @@ class CartScreenState extends State<CartScreen>
           ),
           child: Row(
             children: [
-              // Product image
               Container(
                 width: 72,
                 height: 72,
@@ -530,7 +527,6 @@ class CartScreenState extends State<CartScreen>
                     const SizedBox(height: 10),
                     Row(
                       children: [
-                        // Qty controls
                         Container(
                           decoration: BoxDecoration(
                             color: lightPink.withValues(alpha: 0.5),

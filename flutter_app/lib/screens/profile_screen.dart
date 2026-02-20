@@ -113,7 +113,6 @@ class _ProfileScreenState extends State<ProfileScreen>
               child: CustomScrollView(
                 physics: const BouncingScrollPhysics(),
                 slivers: [
-                  // ── Premium gradient header ──
                   SliverToBoxAdapter(
                     child: Container(
                       decoration: const BoxDecoration(
@@ -135,7 +134,6 @@ class _ProfileScreenState extends State<ProfileScreen>
                           padding: const EdgeInsets.fromLTRB(24, 12, 24, 36),
                           child: Column(
                             children: [
-                              // Top bar
                               Row(
                                 children: [
                                   const Text('My Profile',
@@ -171,7 +169,6 @@ class _ProfileScreenState extends State<ProfileScreen>
 
                               const SizedBox(height: 24),
 
-                              // Avatar with edit button
                               Stack(
                                 children: [
                                   Container(
@@ -231,7 +228,6 @@ class _ProfileScreenState extends State<ProfileScreen>
 
                               const SizedBox(height: 16),
 
-                              // Greeting + Name
                               Text('$_greeting,',
                                   style: TextStyle(
                                       fontSize: 14,
@@ -276,7 +272,6 @@ class _ProfileScreenState extends State<ProfileScreen>
                     ),
                   ),
 
-                  // ── Stats row (floating card) ──
                   SliverToBoxAdapter(
                     child: SlideTransition(
                       position: _slideIn,
@@ -327,7 +322,6 @@ class _ProfileScreenState extends State<ProfileScreen>
                     ),
                   ),
 
-                  // ── Account section ──
                   SliverToBoxAdapter(
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(24, 0, 24, 10),
@@ -373,7 +367,6 @@ class _ProfileScreenState extends State<ProfileScreen>
 
                   const SliverToBoxAdapter(child: SizedBox(height: 20)),
 
-                  // ── General section ──
                   SliverToBoxAdapter(
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(24, 0, 24, 10),
@@ -429,7 +422,6 @@ class _ProfileScreenState extends State<ProfileScreen>
 
                   const SliverToBoxAdapter(child: SizedBox(height: 24)),
 
-                  // ── Logout button ──
                   SliverToBoxAdapter(
                     child: Padding(
                       padding:
@@ -474,7 +466,6 @@ class _ProfileScreenState extends State<ProfileScreen>
                     ),
                   ),
 
-                  // ── App version ──
                   SliverToBoxAdapter(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 20),
